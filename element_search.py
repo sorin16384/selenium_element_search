@@ -35,7 +35,7 @@ def test_for_xpath(driver, element, element_name='', check_once=True, continuous
             print(f"searching for '{element}' xpath...")
             time.sleep(1)
             elem = driver.find_element_by_xpath(element)
-            # failing to find results in error, so except: executes
+            # if the driver fails to find the element, this results in error, so except: executes
             print('Found it')
             log_event(f"Found '{element_name}' xpath", logfile)
             break
