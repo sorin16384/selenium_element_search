@@ -21,3 +21,11 @@ def log_event(event, logfile='log.txt'):
     except Exception as e:
         print(f'Log Error:{event}\n {e}')
         return False
+
+
+def main():
+    # here we write simple code to test the functions
+    log_event('if there is no log.txt, create it, if it exists, add this line in it')
+
+if __name__ == '__main__':
+    main()
