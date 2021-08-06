@@ -60,6 +60,15 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
             err = e
             if continuous:
                 print(f'looking for {timeout - t} more times:\n{e}')
+
+            # in case no match for the means were found , raise an error and provide tips
+            if "Wait a minute you" in str(e):
+                raise RuntimeError("That's no means I can search the element by: '{}'\n"
+                                   "options are : "
+                                   "xpath, id, name, tag_name, selector, "
+                                   "class, link_text, partial_link_text \n"
+                                   "Check thy spelling or something... make it work !".format(way))
+
             # not to repeat if only once was desired
             if check_once:
                 #print(f"'{element_name}' not present")
