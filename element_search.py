@@ -43,7 +43,7 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
                 elem = driver.find_element_by_name(element)
             elif way == 'tag_name':
                 elem = driver.find_element_by_tag_name(element)
-            elif way == 'selector':
+            elif way == 'css_selector':
                 elem = driver.find_element_by_css_selector(element)
             elif way == 'class':
                 elem = driver.find_element_by_class_name(element)
@@ -66,7 +66,7 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
             if "Wait a minute you" in str(e):
                 raise RuntimeError("That's no means I can search the element by: '{}'\n"
                                    "options are : "
-                                   "xpath, id, name, tag_name, selector, "
+                                   "xpath, id, name, tag_name, css_selector, "
                                    "class, link_text, partial_link_text \n"
                                    "Check thy spelling or something... make it work !".format(way))
 
@@ -121,6 +121,18 @@ def search_by_name(driver, element, element_name='', check_once=True, continuous
 
 def search_by_tag_name(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
     return search_element('tag_name',
+                          driver,
+                          element,
+                          element_name=element_name,
+                          check_once=check_once,
+                          continuous=continuous,
+                          timeout=timeout,
+                          logfile=logfile)
+
+
+def search_by_css_selector(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
+
+    return search_element('css_selector',
                           driver,
                           element,
                           element_name=element_name,
