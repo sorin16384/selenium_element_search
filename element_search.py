@@ -85,7 +85,7 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
     return elem
 
 
-def test_for_xpath(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
+def search_by_xpath(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
 
     return search_element('xpath',
                           driver,
