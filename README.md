@@ -11,4 +11,13 @@ The idea is to create a Python script that contains various functions,  that wit
 
 Refer to  [https://selenium-python.readthedocs.io/installation.html](https://selenium-python.readthedocs.io/installation.html)  for help with that
 
-I'm updating this daily with more functions, examples of usage and explanations, so be sure to come back 😀
+## Current functions:
+    log_event(event, logfile='log.txt')
+    search_element(by, driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt')
+    search_by_id(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt')
+    search_by_name(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt')
+    search_by_tag_name(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt')
+    search_by_css_selector(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt')
+    search_by_class(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt')
+    search_by_link_text(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt')
+    search_by_partial_link_text(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt')
