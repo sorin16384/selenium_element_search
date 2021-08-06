@@ -23,7 +23,8 @@ def log_event(event, logfile='log.txt'):
         return False
 
 
-def search_element(way, driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
+def search_element(way, driver, element, element_name='', check_once=True, continuous=False, timeout=30,
+                   logfile='log.txt'):
     elem = None
     element_name = element if element_name == '' else element_name
     t = 0
@@ -71,7 +72,7 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
 
             # not to repeat if only once was desired
             if check_once:
-                #print(f"'{element_name}' not present")
+                # print(f"'{element_name}' not present")
                 log_event(f"'{element_name}' not present", logfile)
                 check_once = False
 
@@ -86,7 +87,6 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
 
 
 def search_by_xpath(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-
     return search_element('xpath',
                           driver,
                           element,
@@ -98,7 +98,6 @@ def search_by_xpath(driver, element, element_name='', check_once=True, continuou
 
 
 def search_by_id(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-
     return search_element('id',
                           driver,
                           element,
@@ -110,7 +109,6 @@ def search_by_id(driver, element, element_name='', check_once=True, continuous=F
 
 
 def search_by_name(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-
     return search_element('name',
                           driver,
                           element,
@@ -119,6 +117,18 @@ def search_by_name(driver, element, element_name='', check_once=True, continuous
                           continuous=continuous,
                           timeout=timeout,
                           logfile=logfile)
+
+
+def search_by_tag_name(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
+    return search_element('tag_name',
+                          driver,
+                          element,
+                          element_name=element_name,
+                          check_once=check_once,
+                          continuous=continuous,
+                          timeout=timeout,
+                          logfile=logfile)
+
 
 if __name__ == '__main__':
     print('Refer to   usage_example.py   for usage examples ...')
