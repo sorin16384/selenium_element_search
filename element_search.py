@@ -92,6 +92,9 @@ def main():
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     driver = webdriver.Chrome(options=options)
 
+    # we'll use as example the selenium web page
+    driver.get('https://www.selenium.dev/')
+
 
 if __name__ == '__main__':
     main()
