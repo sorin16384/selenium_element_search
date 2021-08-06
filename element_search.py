@@ -142,5 +142,17 @@ def search_by_css_selector(driver, element, element_name='', check_once=True, co
                           logfile=logfile)
 
 
+def search_by_class(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
+
+    return search_element('class',
+                          driver,
+                          element,
+                          element_name=element_name,
+                          check_once=check_once,
+                          continuous=continuous,
+                          timeout=timeout,
+                          logfile=logfile)
+
+
 if __name__ == '__main__':
     print('Refer to   usage_example.py   for usage examples ...')
