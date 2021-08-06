@@ -50,6 +50,8 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
                 elem = driver.find_elements_by_link_text(element)
             elif way == 'partial_link_text':
                 elem = driver.find_element_by_partial_link_text(element)
+            else:
+                raise RuntimeError("Wait a minute you, that's no means I can search the element by!")
             # if the driver fails to find the element, this results in error, so except: executes
             print('Found it')
             log_event(f"Found '{element_name}' xpath", logfile)
