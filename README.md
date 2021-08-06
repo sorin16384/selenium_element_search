@@ -13,4 +13,4 @@ All functions will use the same template as the test_for_xpath() function.
 
 Refer to  [https://selenium-python.readthedocs.io/installation.html](https://selenium-python.readthedocs.io/installation.html)  for help with that
 
-Will update with examples of usage and explanations.
+I'm updating this daily with more functions, examples of usage and explanations, so be sure to come back 😀
