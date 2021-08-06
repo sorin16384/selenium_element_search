@@ -23,39 +23,39 @@ def log_event(event, logfile='log.txt'):
         return False
 
 
-def search_element(way, driver, element, element_name='', check_once=True, continuous=False, timeout=30,
+def search_element(by, driver, element, element_name='', check_once=True, continuous=False, timeout=30,
                    logfile='log.txt'):
     elem = None
     element_name = element if element_name == '' else element_name
     t = 0
     err = -1
-    log_event(f"Testing for '{element_name}' {way}")
+    log_event(f"Testing for '{element_name}' {by}")
     while (check_once or continuous) and t < timeout:
         try:
             t += 1
-            print(f"searching for '{element}' {way}...")
+            print(f"searching for '{element}' {by}...")
             time.sleep(1)
-            if way == 'xpath':
+            if by == 'xpath':
                 elem = driver.find_element_by_xpath(element)
-            elif way == 'id':
+            elif by == 'id':
                 elem = driver.find_element_by_id(element)
-            elif way == 'name':
+            elif by == 'name':
                 elem = driver.find_element_by_name(element)
-            elif way == 'tag_name':
+            elif by == 'tag_name':
                 elem = driver.find_element_by_tag_name(element)
-            elif way == 'css_selector':
+            elif by == 'css_selector':
                 elem = driver.find_element_by_css_selector(element)
-            elif way == 'class':
+            elif by == 'class':
                 elem = driver.find_element_by_class_name(element)
-            elif way == 'link_text':
+            elif by == 'link_text':
                 elem = driver.find_elements_by_link_text(element)
-            elif way == 'partial_link_text':
+            elif by == 'partial_link_text':
                 elem = driver.find_element_by_partial_link_text(element)
             else:
                 raise RuntimeError("Wait a minute you, that's no means I can search the element by!")
             # if the driver fails to find the element, this results in error, so except: executes
             print('Found it')
-            log_event(f"Found '{element_name}' {way}", logfile)
+            log_event(f"Found '{element_name}' {by}", logfile)
             break
         except Exception as e:
             err = e
@@ -68,7 +68,7 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
                                    "options are : "
                                    "xpath, id, name, tag_name, css_selector, "
                                    "class, link_text, partial_link_text \n"
-                                   "Check thy spelling or something... make it work !".format(way))
+                                   "Check thy spelling or something... make it work !".format(by))
 
             # not to repeat if only once was desired
             if check_once:
@@ -87,95 +87,47 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
 
 
 def search_by_xpath(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-    return search_element('xpath',
-                          driver,
-                          element,
-                          element_name=element_name,
-                          check_once=check_once,
-                          continuous=continuous,
-                          timeout=timeout,
-                          logfile=logfile)
+    return search_element('xpath', driver, element, element_name=element_name, check_once=check_once,
+                          continuous=continuous, timeout=timeout, logfile=logfile)
 
 
 def search_by_id(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-    return search_element('id',
-                          driver,
-                          element,
-                          element_name=element_name,
-                          check_once=check_once,
-                          continuous=continuous,
-                          timeout=timeout,
-                          logfile=logfile)
+    return search_element('id', driver, element, element_name=element_name, check_once=check_once,
+                          continuous=continuous, timeout=timeout, logfile=logfile)
 
 
 def search_by_name(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-    return search_element('name',
-                          driver,
-                          element,
-                          element_name=element_name,
-                          check_once=check_once,
-                          continuous=continuous,
-                          timeout=timeout,
-                          logfile=logfile)
+    return search_element('name', driver, element, element_name=element_name, check_once=check_once,
+                          continuous=continuous, timeout=timeout, logfile=logfile)
 
 
 def search_by_tag_name(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-    return search_element('tag_name',
-                          driver,
-                          element,
-                          element_name=element_name,
-                          check_once=check_once,
-                          continuous=continuous,
-                          timeout=timeout,
-                          logfile=logfile)
+    return search_element('tag_name', driver, element, element_name=element_name, check_once=check_once,
+                          continuous=continuous, timeout=timeout, logfile=logfile)
 
 
 def search_by_css_selector(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
 
-    return search_element('css_selector',
-                          driver,
-                          element,
-                          element_name=element_name,
-                          check_once=check_once,
-                          continuous=continuous,
-                          timeout=timeout,
-                          logfile=logfile)
+    return search_element('css_selector', driver, element, element_name=element_name, check_once=check_once,
+                          continuous=continuous, timeout=timeout, logfile=logfile)
 
 
 def search_by_class(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
 
-    return search_element('class',
-                          driver,
-                          element,
-                          element_name=element_name,
-                          check_once=check_once,
-                          continuous=continuous,
-                          timeout=timeout,
-                          logfile=logfile)
+    return search_element('class', driver, element, element_name=element_name, check_once=check_once,
+                          continuous=continuous, timeout=timeout, logfile=logfile)
 
 
 def search_by_link_text(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
 
-    return search_element('link_text',
-                          driver,
-                          element,
-                          element_name=element_name,
-                          check_once=check_once,
-                          continuous=continuous,
-                          timeout=timeout,
-                          logfile=logfile)
+    return search_element('link_text', driver, element, element_name=element_name, check_once=check_once,
+                          continuous=continuous, timeout=timeout, logfile=logfile)
 
 
 def search_by_partial_link_text(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
 
-    return search_element('partial_link_text',
-                          driver,
-                          element,
-                          element_name=element_name,
-                          check_once=check_once,
-                          continuous=continuous,
-                          timeout=timeout,
-                          logfile=logfile)
+    return search_element('partial_link_text', driver, element, element_name=element_name, check_once=check_once,
+                          continuous=continuous, timeout=timeout, logfile=logfile)
 
 
 if __name__ == '__main__':
