@@ -23,7 +23,7 @@ def log_event(event, logfile='log.txt'):
         return False
 
 
-def test_for_xpath(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
+def search_element(way, driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
     elem = None
     element_name = element if element_name == '' else element_name
     t = 0
@@ -34,7 +34,9 @@ def test_for_xpath(driver, element, element_name='', check_once=True, continuous
             t += 1
             print(f"searching for '{element}' xpath...")
             time.sleep(1)
-            elem = driver.find_element_by_xpath(element)
+            if way == 'xpath':
+                elem = driver.find_element_by_xpath(element)
+
             # if the driver fails to find the element, this results in error, so except: executes
             print('Found it')
             log_event(f"Found '{element_name}' xpath", logfile)
@@ -57,6 +59,18 @@ def test_for_xpath(driver, element, element_name='', check_once=True, continuous
         # but will leave it for now
 
     return elem
+
+
+def test_for_xpath(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
+
+    return search_element('xpath',
+                          driver,
+                          element,
+                          element_name=element_name,
+                          check_once=check_once,
+                          continuous=continuous,
+                          timeout=timeout,
+                          logfile=logfile)
 
 
 if __name__ == '__main__':
