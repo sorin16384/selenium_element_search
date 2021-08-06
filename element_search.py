@@ -154,5 +154,15 @@ def search_by_class(driver, element, element_name='', check_once=True, continuou
                           logfile=logfile)
 
 
+def search_by_link_text(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
+
+    return search_element('link_text',
+                          driver,
+                          element,
+                          element_name=element_name,
+                          check_once=check_once,
+                          continuous=continuous,
+                          timeout=timeout,
+                          logfile=logfile)
 if __name__ == '__main__':
     print('Refer to   usage_example.py   for usage examples ...')
