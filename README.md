@@ -1,4 +1,4 @@
-# selenium_element_search
+# element_search with Selenium
 
 Just to mention, I'm a beginner to all this, so it it's very possible to make some mistakes
 
