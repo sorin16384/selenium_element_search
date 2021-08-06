@@ -95,6 +95,12 @@ def main():
     # we'll use as example the selenium web page
     driver.get('https://www.selenium.dev/')
 
+    # using the test_for_xpath() function with minimum preferred arguments
+    logo = test_for_xpath(driver, '//*[@id="header"]/a[1]/img[1]', 'logo-icon')
+    print(logo)
+    # logo is now a selenium webelement object that is clickable and whatnot
+    # and there is now a log.txt file containing the results of the search with timestamps
+
 
 if __name__ == '__main__':
     main()
