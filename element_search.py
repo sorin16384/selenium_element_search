@@ -36,7 +36,20 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
             time.sleep(1)
             if way == 'xpath':
                 elem = driver.find_element_by_xpath(element)
-
+            elif way == 'id':
+                elem = driver.find_element_by_id(element)
+            elif way == 'name':
+                elem = driver.find_element_by_name(element)
+            elif way == 'tag_name':
+                elem = driver.find_element_by_tag_name(element)
+            elif way == 'selector':
+                elem = driver.find_element_by_css_selector(element)
+            elif way == 'class':
+                elem = driver.find_element_by_class_name(element)
+            elif way == 'link_text':
+                elem = driver.find_elements_by_link_text(element)
+            elif way == 'partial_link_text':
+                elem = driver.find_element_by_partial_link_text(element)
             # if the driver fails to find the element, this results in error, so except: executes
             print('Found it')
             log_event(f"Found '{element_name}' xpath", logfile)
