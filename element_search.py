@@ -71,7 +71,10 @@ def main():
     # refer to  https://selenium-python.readthedocs.io/installation.html  for help with that
     
     #from element_search import log_event
-    
+
+    # example of how to use the log_event() function
+    # pass a string argument with whatever you want to write into the log
+    # the log filename defaults to log.txt unless otherwise specified
     log_event('if there is no log.txt, create it, if it exists, add this line in it')
 
 if __name__ == '__main__':
