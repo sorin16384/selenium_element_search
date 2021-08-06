@@ -59,7 +59,19 @@ def test_for_xpath(driver, element, element_name='', check_once=True, continuous
 
 
 def main():
-    # here we write simple code to test the functions
+    # this is how the basic code should look when importing this script
+    # so it's practically a usage example
+    # obviously you can import only certain functions or the whole thing with  import element_search
+    # for functionality and demonstration purposes, here I'll use as example the  from *** import ***
+    # in your code the import should be uncommented
+
+    # important note:
+    # you should already have selenium installed
+    # along with the specific driver for your platform and web browser
+    # refer to  https://selenium-python.readthedocs.io/installation.html  for help with that
+    
+    #from element_search import log_event
+    
     log_event('if there is no log.txt, create it, if it exists, add this line in it')
 
 if __name__ == '__main__':
