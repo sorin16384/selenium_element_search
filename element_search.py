@@ -51,7 +51,8 @@ def test_for_xpath(driver, element, element_name='', check_once=True, continuous
 
     if t == timeout and elem is None:
         print(f"Time Out !!!\nCouldn't find {element_name}")
-        log_event(f"Timeout, fail to find '{element_name}': {err if err else 'Unknown Reason'}", logfile)
+        log_event(
+            f"Timeout, fail to find '{element_name}': {err if err else 'Unknown Reason'}", logfile)
         # probably there will always be a reason , so that might disappear
         # but will leave it for now
 
@@ -69,11 +70,24 @@ def main():
     # you should already have selenium installed
     # along with the specific driver for your platform and web browser
     # refer to  https://selenium-python.readthedocs.io/installation.html  for help with that
-    
+
     #from element_search import log_event
     from selenium import webdriver
-    
+
+    # example of how to use the log_event() function
+    # pass a string argument with whatever you want to write into the log
+    # the log filename defaults to log.txt unless otherwise specified
     log_event('if there is no log.txt, create it, if it exists, add this line in it')
+
+    # side hint:
+    # when defining the driver, if using Chrome and you get the following error:
+    # 'Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)'
+    # add to your code this option tweak when defining the driver:
+    #
+    # options = webdriver.ChromeOptions()
+    # options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    # driver = webdriver.Chrome(options=options)
+
 
 if __name__ == '__main__':
     main()
