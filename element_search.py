@@ -77,7 +77,9 @@ def main():
     # example of how to use the log_event() function
     # pass a string argument with whatever you want to write into the log
     # the log filename defaults to log.txt unless otherwise specified
-    log_event('if there is no log.txt, create it, if it exists, add this line in it')
+    # if there is no log.txt, it will be created,
+    # if it exists, will add a line with the timestamp and specified string
+    log_event('Starting session !')
 
     # side hint:
     # when defining the driver, if using Chrome and you get the following error:
@@ -100,6 +102,11 @@ def main():
     print(logo)
     # logo is now a selenium webelement object that is clickable and whatnot
     # and there is now a log.txt file containing the results of the search with timestamps
+
+    log_event('Session End \n')
+    # since all logs will continue to be written in the same file,
+    # preferably finnish the last log_event with a new line at the end as a session separator
+    # so the file is more readable
 
 
 if __name__ == '__main__':
