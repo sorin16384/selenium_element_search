@@ -71,6 +71,7 @@ def main():
     # refer to  https://selenium-python.readthedocs.io/installation.html  for help with that
     
     #from element_search import log_event
+    from selenium import webdriver
     
     log_event('if there is no log.txt, create it, if it exists, add this line in it')
 
