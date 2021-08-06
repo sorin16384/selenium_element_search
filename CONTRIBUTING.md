@@ -12,4 +12,6 @@ New features and functionality? All ears (and eyes if I see a pull request)
 
 Any contribution would be awesome, even if it's just an advice!!!
 
+A thing that I need help with would be not to make a compleate mess with all this git branches, commits, pull requests and merges 😆
+
 ## Thank You :hugs:
