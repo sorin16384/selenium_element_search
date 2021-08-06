@@ -28,11 +28,11 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
     element_name = element if element_name == '' else element_name
     t = 0
     err = -1
-    log_event(f"Testing for '{element_name}' xpath")
+    log_event(f"Testing for '{element_name}' {way}")
     while (check_once or continuous) and t < timeout:
         try:
             t += 1
-            print(f"searching for '{element}' xpath...")
+            print(f"searching for '{element}' {way}...")
             time.sleep(1)
             if way == 'xpath':
                 elem = driver.find_element_by_xpath(element)
@@ -54,7 +54,7 @@ def search_element(way, driver, element, element_name='', check_once=True, conti
                 raise RuntimeError("Wait a minute you, that's no means I can search the element by!")
             # if the driver fails to find the element, this results in error, so except: executes
             print('Found it')
-            log_event(f"Found '{element_name}' xpath", logfile)
+            log_event(f"Found '{element_name}' {way}", logfile)
             break
         except Exception as e:
             err = e
