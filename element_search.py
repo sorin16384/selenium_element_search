@@ -1,6 +1,11 @@
 import time
 import datetime
 
+# to make the script actually return recognisable webelement,
+# we have to import webdriver from selenium and initiate a driver
+from selenium import webdriver
+# and then assign a default driver, does not matter for what it is as it will not actually be used
+driver = webdriver.Chrome()
 
 def log_event(event, logfile='log.txt'):
     """
