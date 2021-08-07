@@ -4,8 +4,10 @@ import datetime
 # to make the script actually return recognisable webelement,
 # we have to import webdriver from selenium and initiate a driver
 from selenium import webdriver
+
 # and then assign a default driver, does not matter for what it is as it will not actually be used
 driver = webdriver.Chrome()
+
 
 def log_event(event, logfile='log.txt'):
     """
@@ -28,7 +30,8 @@ def log_event(event, logfile='log.txt'):
         return False
 
 
-def search_element(by, driver=driver, element='/html/body', element_name='', check_once=True, continuous=False, timeout=30,
+def search_element(by, driver=driver, element='/html/body', element_name='', check_once=True, continuous=False,
+                   timeout=30,
                    logfile='log.txt'):
     elem = None
     element_name = element if element_name == '' else element_name
@@ -106,31 +109,31 @@ def search_by_name(driver, element, element_name='', check_once=True, continuous
                           continuous=continuous, timeout=timeout, logfile=logfile)
 
 
-def search_by_tag_name(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
+def search_by_tag_name(driver, element, element_name='', check_once=True, continuous=False, timeout=30,
+                       logfile='log.txt'):
     return search_element('tag_name', driver, element, element_name=element_name, check_once=check_once,
                           continuous=continuous, timeout=timeout, logfile=logfile)
 
 
-def search_by_css_selector(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-
+def search_by_css_selector(driver, element, element_name='', check_once=True, continuous=False, timeout=30,
+                           logfile='log.txt'):
     return search_element('css_selector', driver, element, element_name=element_name, check_once=check_once,
                           continuous=continuous, timeout=timeout, logfile=logfile)
 
 
 def search_by_class(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-
     return search_element('class', driver, element, element_name=element_name, check_once=check_once,
                           continuous=continuous, timeout=timeout, logfile=logfile)
 
 
-def search_by_link_text(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-
+def search_by_link_text(driver, element, element_name='', check_once=True, continuous=False, timeout=30,
+                        logfile='log.txt'):
     return search_element('link_text', driver, element, element_name=element_name, check_once=check_once,
                           continuous=continuous, timeout=timeout, logfile=logfile)
 
 
-def search_by_partial_link_text(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
-
+def search_by_partial_link_text(driver, element, element_name='', check_once=True, continuous=False, timeout=30,
+                                logfile='log.txt'):
     return search_element('partial_link_text', driver, element, element_name=element_name, check_once=check_once,
                           continuous=continuous, timeout=timeout, logfile=logfile)
 
