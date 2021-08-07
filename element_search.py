@@ -28,7 +28,7 @@ def log_event(event, logfile='log.txt'):
         return False
 
 
-def search_element(by, driver, element, element_name='', check_once=True, continuous=False, timeout=30,
+def search_element(by, driver=driver, element='/html/body', element_name='', check_once=True, continuous=False, timeout=30,
                    logfile='log.txt'):
     elem = None
     element_name = element if element_name == '' else element_name
