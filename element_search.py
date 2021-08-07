@@ -6,8 +6,13 @@ import datetime
 from selenium import webdriver
 
 # and then assign a default driver, does not matter for what it is as it will not actually be used
-driver = webdriver.Chrome()
-
+# the only problem is that this will open a webdriver instance that takes memory and processing for a moment...
+# so this might disappear
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
+driver = webdriver.Chrome(options=options)
+driver.close()
 
 def log_event(event, logfile='log.txt'):
     """
