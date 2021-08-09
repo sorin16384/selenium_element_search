@@ -14,15 +14,24 @@ options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(options=options)
 driver.close()
 
+
 def log_event(event, logfile='log.txt'):
     """
+    Parameters:
+        event (str): what should be logged
 
-    :param event: what should be logged
-    :type event: str
-    :param logfile: the name(and path) of the log file ( default: 'log.txt')
-    :type logfile: str
-    :return: True if everything went ok,
-             False if an error occurred
+        logfile (str): (optional) the name(and path) of the log file ( default: 'log.txt')
+
+    Returns:
+            bool : True if everything went ok, False if something went wrong (such as creating file or writing to it)
+
+    This function will write an event (what happened) to a file with timestamp, while also printing in the terminal what
+    is being written.\n
+    The function will write in the specified logfile, otherwise will create write to a default log.txt file
+
+
+    Usage Example: \n
+    log_event('clicked login button', 'log_amazon_dot_com.txt')
     """
     time_now = (str(datetime.datetime.now())[:22])
     try:
