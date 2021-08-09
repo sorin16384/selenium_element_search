@@ -27,7 +27,8 @@ def log_event(event, logfile='log.txt'):
 
     This function will write an event (what happened) to a file with timestamp, while also printing in the terminal what
     is being written.\n
-    The function will write in the specified logfile, otherwise will create write to a default log.txt file
+    The function will write in the specified logfile, otherwise will create and/or write to a generic default log.txt file. Obviously
+    any extension can be used (e.g.   .log,  .md,   .you_name_it)
 
 
     Usage Example: \n
