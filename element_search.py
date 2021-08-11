@@ -141,6 +141,35 @@ def search_element(by, driver=driver, element='/html/body', element_name='', che
 
 
 def search_by_xpath(driver, element, element_name='', check_once=True, continuous=False, timeout=30, logfile='log.txt'):
+    """ This function will search by xpath, with the passed *driver, the specified *element once or
+        *continuous with one second break for the number of times specified in the *timeout
+        while writing in the *logfile (by calling the log_event() function) the fact that the search started and
+        the outcome of the search (if the element was found or not, in the second case, adding the reason)
+
+        When searching repeatedly, the logfile will receive only the final result, and not all the tries, even though
+        they will be printed in the terminal to let you know what the function is currently doing and why
+
+
+        Parameters:
+
+                driver () : the selenium webdriver you are using for automation
+
+                element (str) : the web element that you are looking for (e.g. '//*[@id="header"]/a[1]/img[1]')
+
+                element_name (str) : an alias for the web element (e.g. 'logo_button' )
+
+                check_once (bool) : whether to check once or not
+
+                continuous (bool) : whether to check continuously or not (overrides check_once)
+
+                timeout (int) : the number of times (with one second wait time) the element should be looked for when
+                    searching continuous
+
+                logfile (str) : the log file that you want the log to be written in (defaults to 'log.txt' )
+
+        Returns:
+            WebElement if the element is found, otherwise, returns None
+        """
     return search_element('xpath', driver, element, element_name=element_name, check_once=check_once,
                           continuous=continuous, timeout=timeout, logfile=logfile)
 
