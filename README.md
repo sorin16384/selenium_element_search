@@ -1,4 +1,4 @@
-# element_search with Selenium
+# element_search with Selenium  (Now With docstrings 😎 )
 
 Just to mention, I'm a beginner to all this, so it it's very possible to make some mistakes
 
