@@ -58,8 +58,7 @@ def search_element(by, driver=driver, element='/html/body', element_name='', che
 
 
     Parameters:
-            by (str) : by what method the search will be done (options are: xpath, id, name, tag_name, css_selector,
-                class, link_text, partial_link_text
+            by (str) : by what method the search will be done (options are: xpath, id, name, tag_name, css_selector, class, link_text, partial_link_text
 
             driver () : the selenium webdriver you are using for automation
 
@@ -71,10 +70,12 @@ def search_element(by, driver=driver, element='/html/body', element_name='', che
 
             continuous (bool) : whether to check continuously or not (overrides check_once)
 
-            timeout (int) : the number of times (with one second wait time) the element should be looked for when
-                searching continuous
+            timeout (int) : the number of times (with one second wait time) the element should be looked for when searching continuous
 
             logfile (str) : the log file that you want the log to be written in (defaults to 'log.txt' )
+
+    Raises:
+        RuntimeError: if the *by is anything else but 'xpath', 'id', 'name', 'tag_name', 'css_selector', 'class', 'link_text', 'partial_link_text'
 
     Returns:
         WebElement if the element is found, otherwise, returns None
